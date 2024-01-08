@@ -8,6 +8,13 @@
 \description{
 Client for the PROOF API.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://getwilds.org/proofr/ (website) https://github.com/getwilds/proofr (devel)}
+}
+
+}
 \author{
 \strong{Maintainer}: Scott Chamberlain \email{sachamber@fredhutch.org} (\href{https://orcid.org/0000-0003-1444-9135}{ORCID})
 
