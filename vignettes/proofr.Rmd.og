@@ -1,0 +1,88 @@
+---
+title: "Getting Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+Load `proofr`
+
+```{r setup-proofr}
+library(proofr)
+```
+
+## Authenticate with the PROOF API
+
+Run the function `proof_authenticate()`, which calls the PROOF API with your username and password, and returns an API token (an alphanumeric string).
+
+```{r auth}
+proof_authenticate("username", "password")
+#> xyGKibGctQ92rmMKKb39q43XgPxGCmrWoX7NZtamTjDP
+```
+
+(note: the above token is not a real token)
+
+The token is not only returned but is set as an environment variable within the R session. This is important as it's not a good security practice to pass secrets such as API tokens as parameters to functions.
+
+That is to say, please do save your API token as an environment variable somewhere on your computer, but you shouldn't need it after running `proof_authenticate()` because we'll look for it as an environment variable.
+
+## Start a Cromwell Server
+
+Start the server
+
+```{r start}
+proof_start()
+```
+
+Get the URL
+
+```{r cromwell-url}
+metadata <- proof_status()
+cromwell_url <- metadata$cromwellUrl
+cromwell_url
+```
+
+## rcromwell setup
+
+Load  `rcromwell`
+
+```{r setup-rcromwell}
+library(rcromwell)
+library(httr)
+```
+
+Set the Cromwell server URL to be recognized by `rcromwell`
+
+```{r set-url}
+cromwell_config(cromwell_url)
+```
+
+Set the `Authorization` HTTP header to be used in all `rcromwell` HTTP requests
+
+```{r set-auth-header}
+httr::set_config(proof_header())
+```
+
+You should now be able to interact with your Cromwell server with authentication details retrieved via the `proofr` package!
+
+## Interact with the Cromwell server
+
+Now, check the version of your Cromwell server
+
+```{r cromwell-version}
+cromwell_version()
+```
+
+## Done!
+
+You're now setup to interact with your Cromwell server. See the `rcromwell` [package docs](https://getwilds.org/rcromwell/) to get started.

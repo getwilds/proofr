@@ -23,3 +23,7 @@ You can install the development version of proofr from [GitHub](https://github.c
 # install.packages("pak")
 pak::pak("getwilds/proofr")
 ```
+
+## Get started
+
+To get started with `proofr`, see the [Getting Started vignette](https://getwilds.org/proofr/articles/proofr.html).
