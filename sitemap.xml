@@ -10,6 +10,12 @@
     <loc>http://getwilds.org/proofr/LICENSE.html</loc>
   </url>
   <url>
+    <loc>http://getwilds.org/proofr/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>http://getwilds.org/proofr/articles/proofr.html</loc>
+  </url>
+  <url>
     <loc>http://getwilds.org/proofr/authors.html</loc>
   </url>
   <url>
@@ -22,16 +28,16 @@
     <loc>http://getwilds.org/proofr/reference/proof_authenticate.html</loc>
   </url>
   <url>
+    <loc>http://getwilds.org/proofr/reference/proof_cancel.html</loc>
+  </url>
+  <url>
     <loc>http://getwilds.org/proofr/reference/proof_header.html</loc>
   </url>
   <url>
-    <loc>http://getwilds.org/proofr/reference/proof_job_cancel.html</loc>
+    <loc>http://getwilds.org/proofr/reference/proof_start.html</loc>
   </url>
   <url>
-    <loc>http://getwilds.org/proofr/reference/proof_job_start.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/proof_job_status.html</loc>
+    <loc>http://getwilds.org/proofr/reference/proof_status.html</loc>
   </url>
   <url>
     <loc>http://getwilds.org/proofr/reference/proofr-package.html</loc>
