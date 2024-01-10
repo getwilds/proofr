@@ -7,13 +7,12 @@
 proof_header(token = NULL)
 }
 \arguments{
-\item{token}{PROOF API token}
+\item{token}{(character) PROOF API token. optional}
 }
 \value{
 A \code{request} S3 class with the HTTP header that can be passed
 to \code{httr::GET()}, \code{httr::POST()}, etc.
 }
 \description{
-Utility method to get header for PROOF API calls
+Get header for PROOF API calls
 }
-\keyword{internal}

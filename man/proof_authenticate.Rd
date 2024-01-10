@@ -16,7 +16,7 @@ A single token (character) for bearer authentication with
 the PROOF API
 }
 \description{
-Authenticates with HutchNet credentials, returns PROOF API token
+Authenticate with PROOF API
 }
 \examples{
 # Sys.getenv("PROOF_TOKEN")

@@ -2,6 +2,7 @@
 
 export(proof_authenticate)
 export(proof_cancel)
+export(proof_header)
 export(proof_start)
 export(proof_status)
 importFrom(httr,DELETE)

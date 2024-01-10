@@ -11,10 +11,8 @@ find_token <- function(token = NULL) {
 
 #' Get header for PROOF API calls
 #'
-#' Utility method to get header for PROOF API calls
-#'
-#' @keywords internal
-#' @param token PROOF API token
+#' @export
+#' @param token (character) PROOF API token. optional
 #' @return A `request` S3 class with the HTTP header that can be passed
 #' to `httr::GET()`, `httr::POST()`, etc.
 proof_header <- function(token = NULL) {
@@ -22,8 +20,6 @@ proof_header <- function(token = NULL) {
 }
 
 #' Authenticate with PROOF API
-#'
-#' Authenticates with HutchNet credentials, returns PROOF API token
 #'
 #' @export
 #' @param username (character) HutchNet username
