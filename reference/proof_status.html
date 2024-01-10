@@ -41,7 +41,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Get PROOF API job status - is job running, what's its URL...</h1>
-      <small class="dont-index">Source: <a href="https://github.com/getwilds/proofr/blob/HEAD/R/job_status.R" class="external-link"><code>R/job_status.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/getwilds/proofr/blob/HEAD/R/status.R" class="external-link"><code>R/status.R</code></a></small>
       <div class="d-none name"><code>proof_status.Rd</code></div>
     </div>
 
@@ -58,9 +58,14 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A list with slots:</p><ul><li><p><code>canJobStart</code></p></li>
-<li><p><code>jobStatus</code></p></li>
-<li><p><code>cromwellUrl</code></p></li>
+<p>A list with fields:</p><ul><li><p><code>canJobStart</code> (logical): can a job to make a Cromwell server be started?
+<code>FALSE</code> if server already running; <code>TRUE</code> if server not running</p></li>
+<li><p><code>jobStatus</code> (character): status of the job that controls the Cromwell
+server. e.g., "RUNNING". <code>NULL</code> if server not running</p></li>
+<li><p><code>cromwellUrl</code> (character): the URL for the Cromwell server. <code>NULL</code> if
+server not running</p></li>
+<li><p><code>jobInfo</code> (list): metadata on the Cromwell server. All slots <code>NULL</code>
+if server not running</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
