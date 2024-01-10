@@ -2,20 +2,18 @@
 % Please edit documentation in R/cancel.R
 \name{proof_cancel}
 \alias{proof_cancel}
-\title{Delete PROOF Cromwell server}
+\title{Cancel/stop PROOF Cromwell server}
 \usage{
 proof_cancel()
 }
 \value{
-A list with fields \code{job_id} and \code{info}
+A list with a single field:
+\itemize{
+\item \code{message} (character)
+}
 }
 \description{
-Delete PROOF Cromwell server
-}
-\details{
-Does not return PROOF/Cromwell server URL, for that you have to
-periodically call \code{\link[=proof_status]{proof_status()}}, or wait for the email from the
-PROOF API
+Cancel/stop PROOF Cromwell server
 }
 \references{
 \url{https://github.com/FredHutch/proof-api#delete-cromwell-server}

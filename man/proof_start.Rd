@@ -11,7 +11,11 @@ proof_start(pi_name = NULL)
 is in more than one SLURM account}
 }
 \value{
-A list with fields \code{job_id} and \code{info}
+A list with fields:
+\itemize{
+\item \code{job_id} (character)
+\item \code{info} (character)
+}
 }
 \description{
 Start PROOF Cromwell server
