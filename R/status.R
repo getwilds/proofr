@@ -21,6 +21,6 @@ proof_status <- function() {
     proof_header(),
     timeout(proofr_env$timeout_sec)
   )
-  stop_for_status(response)
+  stop_for_message(response)
   content(response, as = "parsed")
 }

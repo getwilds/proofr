@@ -11,7 +11,6 @@ proof_cancel <- function() {
     proof_header(),
     timeout(proofr_env$timeout_sec)
   )
-  # FIXME: better error handling - surface error messages
-  stop_for_status(response)
+  stop_for_message(response)
   content(response, as = "parsed")
 }
