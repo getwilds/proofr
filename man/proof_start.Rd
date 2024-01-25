@@ -4,17 +4,19 @@
 \alias{proof_start}
 \title{Start PROOF Cromwell server}
 \usage{
-proof_start(pi_name = NULL)
+proof_start(slurm_account = NULL)
 }
 \arguments{
-\item{pi_name}{(character) PI name in the form last_f; only needed if user
-is in more than one SLURM account}
+\item{slurm_account}{(character) PI name in the form \code{last_f}, where last
+is the last name of the PI and f is the first name, e.g., "Jane Doe"
+would be \code{doe_j}; only needed if user is in more than one SLURM account.
+optional}
 }
 \value{
 A list with fields:
 \itemize{
-\item \code{job_id} (character)
-\item \code{info} (character)
+\item \code{job_id} (character) - the job ID
+\item \code{info} (character) - message
 }
 }
 \description{
@@ -23,7 +25,8 @@ Start PROOF Cromwell server
 \details{
 Does not return PROOF/Cromwell server URL, for that you have to
 periodically call \code{\link[=proof_status]{proof_status()}}, or wait for the email from the
-PROOF API
+PROOF API. See the link to proof-api for more details about the
+slurm account.
 }
 \section{Timeout}{
 
@@ -33,5 +36,5 @@ See \code{\link[=proof_timeout]{proof_timeout()}}.
 }
 
 \references{
-\url{https://github.com/FredHutch/proof-api#post-cromwell-server}
+\url{https://github.com/FredHutch/proof-api/#post-cromwell-server}
 }
