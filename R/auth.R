@@ -24,6 +24,7 @@ proof_header <- function(token = NULL) {
 #' @export
 #' @param username (character) HutchNet username
 #' @param password (character) HutchNet password
+#' @inheritSection proof_status Timeout
 #' @return A single token (character) for bearer authentication with
 #' the PROOF API
 #' @examples
@@ -31,10 +32,14 @@ proof_header <- function(token = NULL) {
 #' # x <- proof_authenticate("username", "password")
 #' # Sys.getenv("PROOF_TOKEN")
 proof_authenticate <- function(username, password) {
-  response <- POST(make_url("authenticate"), body = list(
-    username = username,
-    password = password
-  ), encode = "json")
+  response <- POST(make_url("authenticate"),
+    body = list(
+      username = username,
+      password = password
+    ),
+    encode = "json",
+    timeout(proofr_env$timeout_sec)
+  )
   stop_for_status(response)
   parsed <- content(response, as = "parsed")
   token <- parsed$token

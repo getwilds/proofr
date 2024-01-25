@@ -15,6 +15,13 @@ A list with a single field:
 \description{
 Cancel/stop PROOF Cromwell server
 }
+\section{Timeout}{
+
+If the PROOF API is unavailable, this function will timeout after
+5 seconds. Contact the package maintainer if you get a timeout error.
+See \code{\link[=proof_timeout]{proof_timeout()}}.
+}
+
 \references{
 \url{https://github.com/FredHutch/proof-api#delete-cromwell-server}
 }

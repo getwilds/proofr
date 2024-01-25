@@ -18,6 +18,13 @@ the PROOF API
 \description{
 Authenticate with PROOF API
 }
+\section{Timeout}{
+
+If the PROOF API is unavailable, this function will timeout after
+5 seconds. Contact the package maintainer if you get a timeout error.
+See \code{\link[=proof_timeout]{proof_timeout()}}.
+}
+
 \examples{
 # Sys.getenv("PROOF_TOKEN")
 # x <- proof_authenticate("username", "password")

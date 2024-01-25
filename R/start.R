@@ -7,6 +7,7 @@
 #' @details Does not return PROOF/Cromwell server URL, for that you have to
 #' periodically call [proof_status()], or wait for the email from the
 #' PROOF API
+#' @inheritSection proof_status Timeout
 #' @return A list with fields:
 #' - `job_id` (character)
 #' - `info` (character)
@@ -15,7 +16,8 @@ proof_start <- function(pi_name = NULL) {
     make_url("cromwell-server"),
     proof_header(),
     body = list(pi_name = pi_name),
-    encode = "json"
+    encode = "json",
+    timeout(proofr_env$timeout_sec)
   )
   # FIXME: better error handling - surface error messages
   stop_for_status(response)
