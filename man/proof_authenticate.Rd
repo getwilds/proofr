@@ -20,6 +20,6 @@ Authenticate with PROOF API
 }
 \examples{
 # Sys.getenv("PROOF_TOKEN")
-# x <- proof_authenticate()
+# x <- proof_authenticate("username", "password")
 # Sys.getenv("PROOF_TOKEN")
 }
