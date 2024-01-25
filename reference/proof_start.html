@@ -51,28 +51,31 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">proof_start</span><span class="op">(</span>pi_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">proof_start</span><span class="op">(</span>slurm_account <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>pi_name</dt>
-<dd><p>(character) PI name in the form last_f; only needed if user
-is in more than one SLURM account</p></dd>
+    <dl><dt>slurm_account</dt>
+<dd><p>(character) PI name in the form <code>last_f</code>, where last
+is the last name of the PI and f is the first name, e.g., "Jane Doe"
+would be <code>doe_j</code>; only needed if user is in more than one SLURM account.
+optional</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A list with fields:</p><ul><li><p><code>job_id</code> (character)</p></li>
-<li><p><code>info</code> (character)</p></li>
+<p>A list with fields:</p><ul><li><p><code>job_id</code> (character) - the job ID</p></li>
+<li><p><code>info</code> (character) - message</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Does not return PROOF/Cromwell server URL, for that you have to
 periodically call <code><a href="proof_status.html">proof_status()</a></code>, or wait for the email from the
-PROOF API</p>
+PROOF API. See the link to proof-api for more details about the
+slurm account.</p>
     </div>
     <div class="section level2">
     <h2 id="timeout">Timeout<a class="anchor" aria-label="anchor" href="#timeout"></a></h2>
@@ -84,7 +87,7 @@ See <code><a href="proof_timeout.html">proof_timeout()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p><a href="https://github.com/FredHutch/proof-api#post-cromwell-server" class="external-link">https://github.com/FredHutch/proof-api#post-cromwell-server</a></p>
+    <p><a href="https://github.com/FredHutch/proof-api/#post-cromwell-server" class="external-link">https://github.com/FredHutch/proof-api/#post-cromwell-server</a></p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
