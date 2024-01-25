@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">proofr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.91</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.91</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,6 +67,14 @@ server not running</p></li>
 <li><p><code>jobInfo</code> (list): metadata on the Cromwell server. All slots <code>NULL</code>
 if server not running</p></li>
 </ul></div>
+    <div class="section level2">
+    <h2 id="timeout">Timeout<a class="anchor" aria-label="anchor" href="#timeout"></a></h2>
+    
+
+<p>If the PROOF API is unavailable, this function will timeout after
+5 seconds. Contact the package maintainer if you get a timeout error.
+See <code><a href="proof_timeout.html">proof_timeout()</a></code>.</p>
+    </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p><a href="https://github.com/FredHutch/proof-api#get-cromwell-server" class="external-link">https://github.com/FredHutch/proof-api#get-cromwell-server</a></p>

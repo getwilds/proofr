@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">proofr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.91</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.91</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,11 +71,19 @@
 <p>A single token (character) for bearer authentication with
 the PROOF API</p>
     </div>
+    <div class="section level2">
+    <h2 id="timeout">Timeout<a class="anchor" aria-label="anchor" href="#timeout"></a></h2>
+    
+
+<p>If the PROOF API is unavailable, this function will timeout after
+5 seconds. Contact the package maintainer if you get a timeout error.
+See <code><a href="proof_timeout.html">proof_timeout()</a></code>.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Sys.getenv("PROOF_TOKEN")</span></span></span>
-<span class="r-in"><span><span class="co"># x &lt;- proof_authenticate()</span></span></span>
+<span class="r-in"><span><span class="co"># x &lt;- proof_authenticate("username", "password")</span></span></span>
 <span class="r-in"><span><span class="co"># Sys.getenv("PROOF_TOKEN")</span></span></span>
 <span class="r-in"></span>
 </code></pre></div>
