@@ -7,10 +7,12 @@
 proof_cancel()
 }
 \value{
-A list with a single field:
+On success, a list with a single field:
 \itemize{
 \item \code{message} (character)
 }
+
+If run when there's no Cromwell server running, an HTTP error
 }
 \description{
 Cancel/stop PROOF Cromwell server
