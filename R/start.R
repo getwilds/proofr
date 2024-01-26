@@ -11,6 +11,12 @@
 #' PROOF API. See the link to proof-api for more details about the
 #' slurm account.
 #' @inheritSection proof_status Timeout
+#' @section Cromwell Server uptime:
+#' The Cromwell server started by this function will run for 7 days
+#' and then shut down. However, your data persists across different
+#' instances of Cromwell servers created by running this function.
+#' You do however need to have a Cromwell server up and running to
+#' retrieve data.
 #' @return A list with fields:
 #' - `job_id` (character) - the job ID
 #' - `info` (character) - message

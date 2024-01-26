@@ -28,6 +28,15 @@ periodically call \code{\link[=proof_status]{proof_status()}}, or wait for the e
 PROOF API. See the link to proof-api for more details about the
 slurm account.
 }
+\section{Cromwell Server uptime}{
+
+The Cromwell server started by this function will run for 7 days
+and then shut down. However, your data persists across different
+instances of Cromwell servers created by running this function.
+You do however need to have a Cromwell server up and running to
+retrieve data.
+}
+
 \section{Timeout}{
 
 If the PROOF API is unavailable, this function will timeout after
