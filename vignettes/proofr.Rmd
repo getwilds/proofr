@@ -56,6 +56,10 @@ Load  `rcromwell`
 
 
 ```r
+if (!requireNamespace("rcromwell", quietly=TRUE)) {
+  install.packages("pak")
+  pak::pak("rcromwell")
+}
 library(rcromwell)
 library(httr)
 ```

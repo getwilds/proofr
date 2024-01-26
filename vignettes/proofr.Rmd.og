@@ -57,6 +57,10 @@ cromwell_url
 Load  `rcromwell`
 
 ```{r setup-rcromwell}
+if (!requireNamespace("rcromwell", quietly=TRUE)) {
+  install.packages("pak")
+  pak::pak("rcromwell")
+}
 library(rcromwell)
 library(httr)
 ```
