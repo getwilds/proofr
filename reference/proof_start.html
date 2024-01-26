@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">proofr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.91</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.91</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,6 +76,16 @@ optional</p></dd>
 periodically call <code><a href="proof_status.html">proof_status()</a></code>, or wait for the email from the
 PROOF API. See the link to proof-api for more details about the
 slurm account.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="cromwell-server-uptime">Cromwell Server uptime<a class="anchor" aria-label="anchor" href="#cromwell-server-uptime"></a></h2>
+    
+
+<p>The Cromwell server started by this function will run for 7 days
+and then shut down. However, your data persists across different
+instances of Cromwell servers created by running this function.
+You do however need to have a Cromwell server up and running to
+retrieve data.</p>
     </div>
     <div class="section level2">
     <h2 id="timeout">Timeout<a class="anchor" aria-label="anchor" href="#timeout"></a></h2>
