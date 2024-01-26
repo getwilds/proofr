@@ -8,7 +8,7 @@ test_that("proof_header", {
   expect_match(proof_header("adf")$headers[[1]], "adf")
 
   # If PROOF_TOKEN env var set, fxn can find it
-  withr::with_envvar(c("PROOF_TOKEN" = "world"), {
-    expect_match(proof_header()$headers[[1]], "world")
+  withr::with_envvar(c("PROOF_TOKEN" = "notarealtoken"), {
+    expect_match(proof_header()$headers[[1]], "notarealtoken")
   })
 })
