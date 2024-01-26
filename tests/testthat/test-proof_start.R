@@ -3,7 +3,7 @@ test_that("proof_start - success", {
     to_return(
       body = jsonlite::toJSON(response_start_success, auto_unbox = TRUE),
       status = 200L,
-      headers = list('Content-type' = "application/json")
+      headers = list("Content-type" = "application/json")
     )
 
   enable(quiet = TRUE)
@@ -26,7 +26,7 @@ test_that("proof_start - already running", {
     to_return(
       body = jsonlite::toJSON(response_start_conflict, auto_unbox = TRUE),
       status = 409L,
-      headers = list('Content-type' = "application/json")
+      headers = list("Content-type" = "application/json")
     )
 
   enable(quiet = TRUE)

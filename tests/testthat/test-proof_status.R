@@ -2,9 +2,11 @@ test_that("proof_status - server IS running", {
   stub_request("get", make_url("cromwell-server")) %>%
     to_return(
       body = jsonlite::toJSON(
-        response_status_running, auto_unbox = TRUE, null = "null"),
+        response_status_running,
+        auto_unbox = TRUE, null = "null"
+      ),
       status = 200L,
-      headers = list('Content-type' = "application/json")
+      headers = list("Content-type" = "application/json")
     )
 
   enable(quiet = TRUE)
@@ -31,9 +33,11 @@ test_that("proof_status - server IS NOT running", {
   stub_request("get", make_url("cromwell-server")) %>%
     to_return(
       body = jsonlite::toJSON(
-        response_status_not_running, auto_unbox = TRUE, null = "null"),
+        response_status_not_running,
+        auto_unbox = TRUE, null = "null"
+      ),
       status = 200L,
-      headers = list('Content-type' = "application/json")
+      headers = list("Content-type" = "application/json")
     )
 
   enable(quiet = TRUE)

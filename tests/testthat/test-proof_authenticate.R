@@ -1,19 +1,27 @@
 test_that("proof_authenticate - error behavior", {
   # errors if no username supplied
-  expect_error(proof_authenticate(),
-    '"username" is missing')
+  expect_error(
+    proof_authenticate(),
+    '"username" is missing'
+  )
 
   # errors if no password supplied
-  expect_error(proof_authenticate(username = "apple"),
-    '"password" is missing')
+  expect_error(
+    proof_authenticate(username = "apple"),
+    '"password" is missing'
+  )
 
   # username should be character
-  expect_error(proof_authenticate(5),
-    'username must be of class character')
+  expect_error(
+    proof_authenticate(5),
+    "username must be of class character"
+  )
 
   # password should be character
-  expect_error(proof_authenticate(username = "apple", password = 5),
-    'password must be of class character')
+  expect_error(
+    proof_authenticate(username = "apple", password = 5),
+    "password must be of class character"
+  )
 })
 
 test_that("proof_start - success", {
@@ -21,9 +29,11 @@ test_that("proof_start - success", {
   stub_request("post", make_url("authenticate")) %>%
     to_return(
       body = jsonlite::toJSON(
-        response_authenticate_success, auto_unbox = TRUE),
+        response_authenticate_success,
+        auto_unbox = TRUE
+      ),
       status = 200L,
-      headers = list('Content-type' = "application/json")
+      headers = list("Content-type" = "application/json")
     )
   stub_registry()
 

@@ -4,7 +4,7 @@ test_that("proof_cancel - success", {
     to_return(
       body = jsonlite::toJSON(response_cancel_success, auto_unbox = TRUE),
       status = 200L,
-      headers = list('Content-type' = "application/json")
+      headers = list("Content-type" = "application/json")
     )
   stub_registry()
 
@@ -28,7 +28,7 @@ test_that("proof_cancel - not running, can not cancel", {
     to_return(
       body = jsonlite::toJSON(response_cancel_conflict, auto_unbox = TRUE),
       status = 409L,
-      headers = list('Content-type' = "application/json")
+      headers = list("Content-type" = "application/json")
     )
 
   enable(quiet = TRUE)
