@@ -32,6 +32,9 @@ proof_header <- function(token = NULL) {
 #' # x <- proof_authenticate("username", "password")
 #' # Sys.getenv("PROOF_TOKEN")
 proof_authenticate <- function(username, password) {
+  assert(username, "character")
+  assert(password, "character")
+
   response <- POST(make_url("authenticate"),
     body = list(
       username = username,
