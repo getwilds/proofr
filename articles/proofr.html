@@ -123,20 +123,21 @@ an environment variable.</p>
 <code>rcromwell</code></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">cromwell_config</span><span class="op">(</span><span class="va">cromwell_url</span><span class="op">)</span></span></code></pre></div>
-<p>Set the <code>Authorization</code> HTTP header to be used in all
-<code>rcromwell</code> HTTP requests</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">httr</span><span class="fu">::</span><span class="fu"><a href="https://httr.r-lib.org/reference/set_config.html" class="external-link">set_config</a></span><span class="op">(</span><span class="fu"><a href="../reference/proof_header.html">proof_header</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>You should now be able to interact with your Cromwell server with
-authentication details retrieved via the <code>proofr</code>
-package!</p>
+<p>In addition to setting the Cromwell URL, your PROOF API token is also
+required for HTTP requests to your server. As long as you’ve loaded
+<code>rcromwell</code> (via <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(rcromwell)</a></code>) and run
+<code><a href="../reference/proof_authenticate.html">proof_authenticate()</a></code> successfully, then you should be able
+to interact with your Cromwell server!</p>
 </div>
 <div class="section level2">
 <h2 id="interact-with-the-cromwell-server">Interact with the Cromwell server<a class="anchor" aria-label="anchor" href="#interact-with-the-cromwell-server"></a>
 </h2>
-<p>Now, check the version of your Cromwell server</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<p>As an example, <code>cromwell_version()</code> checks the version of
+your Cromwell server</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">cromwell_version</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>See the many functions in <a href="https://getwilds.org/rcromwell/reference/" class="external-link">rcromwell
+documentation</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="done">Done!<a class="anchor" aria-label="anchor" href="#done"></a>
