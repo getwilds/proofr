@@ -71,23 +71,18 @@ Set the Cromwell server URL to be recognized by `rcromwell`
 cromwell_config(cromwell_url)
 ```
 
-Set the `Authorization` HTTP header to be used in all `rcromwell` HTTP requests
-
-
-```r
-httr::set_config(proof_header())
-```
-
-You should now be able to interact with your Cromwell server with authentication details retrieved via the `proofr` package!
+In addition to setting the Cromwell URL, your PROOF API token is also required for HTTP requests to your server. As long as you've loaded `rcromwell` (via `library(rcromwell)`) and run `proof_authenticate()` successfully, then you should be able to interact with your Cromwell server!
 
 ## Interact with the Cromwell server
 
-Now, check the version of your Cromwell server
+As an example, `cromwell_version()` checks the version of your Cromwell server
 
 
 ```r
 cromwell_version()
 ```
+
+See the many functions in [rcromwell documentation](https://getwilds.org/rcromwell/reference/).
 
 ## Done!
 
