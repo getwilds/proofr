@@ -5,6 +5,11 @@
 #' is the last name of the PI and f is the first name, e.g., "Jane Doe"
 #' would be `doe_j`; only needed if user is in more than one SLURM account.
 #' optional
+#' @param token (character) token for bearer authentication with
+#' the PROOF API. default is `NULL`. we do not recommend passing your token
+#' here as a string. Either pass it using [Sys.getenv()] or save your
+#' token as an env var and then passing nothing to this param and we'll find
+#' it
 #' @references <https://github.com/FredHutch/proof-api/#post-cromwell-server>
 #' @details Does not return PROOF/Cromwell server URL, for that you have to
 #' periodically call [proof_status()], or wait for the email from the
@@ -20,10 +25,10 @@
 #' @return A list with fields:
 #' - `job_id` (character) - the job ID
 #' - `info` (character) - message
-proof_start <- function(slurm_account = NULL) {
+proof_start <- function(slurm_account = NULL, token = NULL) {
   response <- POST(
     make_url("cromwell-server"),
-    proof_header(),
+    proof_header(token),
     body = list(slurm_account = slurm_account),
     encode = "json",
     timeout(proofr_env$timeout_sec)

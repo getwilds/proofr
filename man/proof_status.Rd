@@ -4,7 +4,14 @@
 \alias{proof_status}
 \title{Get PROOF API job status - is job running, what's its URL...}
 \usage{
-proof_status()
+proof_status(token = NULL)
+}
+\arguments{
+\item{token}{(character) token for bearer authentication with
+the PROOF API. default is \code{NULL}. we do not recommend passing your token
+here as a string. Either pass it using \code{\link[=Sys.getenv]{Sys.getenv()}} or save your
+token as an env var and then passing nothing to this param and we'll find
+it}
 }
 \value{
 A list with fields:

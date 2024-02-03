@@ -1,6 +1,7 @@
 #' Get PROOF API job status - is job running, what's its URL...
 #'
 #' @export
+#' @inheritParams proof_start
 #' @references <https://github.com/FredHutch/proof-api#get-cromwell-server>
 #' @section Timeout:
 #' If the PROOF API is unavailable, this function will timeout after
@@ -15,10 +16,10 @@
 #' server not running
 #' - `jobInfo` (list): metadata on the Cromwell server. All slots `NULL`
 #' if server not running
-proof_status <- function() {
+proof_status <- function(token = NULL) {
   response <- GET(
     make_url("cromwell-server"),
-    proof_header(),
+    proof_header(token),
     timeout(proofr_env$timeout_sec)
   )
   stop_for_message(response)

@@ -25,8 +25,3 @@ If the PROOF API is unavailable, this function will timeout after
 See \code{\link[=proof_timeout]{proof_timeout()}}.
 }
 
-\examples{
-# Sys.getenv("PROOF_TOKEN")
-# x <- proof_authenticate("username", "password")
-# Sys.getenv("PROOF_TOKEN")
-}
