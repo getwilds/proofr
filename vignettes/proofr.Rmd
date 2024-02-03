@@ -28,9 +28,12 @@ proof_authenticate("username", "password")
 
 (note: the above token is not a real token)
 
-The token is not only returned but is set as an environment variable within the R session. This is important as it's not a good security practice to pass secrets such as API tokens as parameters to functions.
+On your computer, save your API token as an environment variable named `PROOF_TOKEN`.
 
-That is to say, please do save your API token as an environment variable somewhere on your computer, but you shouldn't need it after running `proof_authenticate()` because we'll look for it as an environment variable.
+If you've saved your `PROOF_TOKEN` env var, then you can use the other `proofr` functions.
+
+Otherwise, you can pass your PROOF token to the `proofr` functions. If you pass your token to the functions, only do so by passing the call to `Sys.getenv` like `proof_status(token = Sys.getenv("MY_TOKEN"))`.
+
 
 ## Start a Cromwell Server
 

@@ -4,7 +4,14 @@
 \alias{proof_cancel}
 \title{Cancel/stop PROOF Cromwell server}
 \usage{
-proof_cancel()
+proof_cancel(token = NULL)
+}
+\arguments{
+\item{token}{(character) token for bearer authentication with
+the PROOF API. default is \code{NULL}. we do not recommend passing your token
+here as a string. Either pass it using \code{\link[=Sys.getenv]{Sys.getenv()}} or save your
+token as an env var and then passing nothing to this param and we'll find
+it}
 }
 \value{
 On success, a list with a single field:

@@ -27,10 +27,6 @@ proof_header <- function(token = NULL) {
 #' @inheritSection proof_status Timeout
 #' @return A single token (character) for bearer authentication with
 #' the PROOF API
-#' @examples
-#' # Sys.getenv("PROOF_TOKEN")
-#' # x <- proof_authenticate("username", "password")
-#' # Sys.getenv("PROOF_TOKEN")
 proof_authenticate <- function(username, password) {
   assert(username, "character")
   assert(password, "character")
@@ -46,6 +42,5 @@ proof_authenticate <- function(username, password) {
   stop_for_status(response)
   parsed <- content(response, as = "parsed")
   token <- parsed$token
-  Sys.setenv(PROOF_TOKEN = token)
   token
 }

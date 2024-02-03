@@ -4,13 +4,19 @@
 \alias{proof_start}
 \title{Start PROOF Cromwell server}
 \usage{
-proof_start(slurm_account = NULL)
+proof_start(slurm_account = NULL, token = NULL)
 }
 \arguments{
 \item{slurm_account}{(character) PI name in the form \code{last_f}, where last
 is the last name of the PI and f is the first name, e.g., "Jane Doe"
 would be \code{doe_j}; only needed if user is in more than one SLURM account.
 optional}
+
+\item{token}{(character) token for bearer authentication with
+the PROOF API. default is \code{NULL}. we do not recommend passing your token
+here as a string. Either pass it using \code{\link[=Sys.getenv]{Sys.getenv()}} or save your
+token as an env var and then passing nothing to this param and we'll find
+it}
 }
 \value{
 A list with fields:
