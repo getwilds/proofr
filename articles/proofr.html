@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">proofr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.91</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,14 +90,14 @@ alphanumeric string).</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/proof_authenticate.html">proof_authenticate</a></span><span class="op">(</span><span class="st">"username"</span>, <span class="st">"password"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; xyGKibGctQ92rmMKKb39q43XgPxGCmrWoX7NZtamTjDP</span></span></code></pre></div>
 <p>(note: the above token is not a real token)</p>
-<p>The token is not only returned but is set as an environment variable
-within the R session. This is important as it’s not a good security
-practice to pass secrets such as API tokens as parameters to
-functions.</p>
-<p>That is to say, please do save your API token as an environment
-variable somewhere on your computer, but you shouldn’t need it after
-running <code><a href="../reference/proof_authenticate.html">proof_authenticate()</a></code> because we’ll look for it as
-an environment variable.</p>
+<p>On your computer, save your API token as an environment variable
+named <code>PROOF_TOKEN</code>.</p>
+<p>If you’ve saved your <code>PROOF_TOKEN</code> env var, then you can
+use the other <code>proofr</code> functions.</p>
+<p>Otherwise, you can pass your PROOF token to the <code>proofr</code>
+functions. If you pass your token to the functions, only do so by
+passing the call to <code>Sys.getenv</code> like
+<code>proof_status(token = Sys.getenv("MY_TOKEN"))</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="start-a-cromwell-server">Start a Cromwell Server<a class="anchor" aria-label="anchor" href="#start-a-cromwell-server"></a>
