@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">proofr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.91</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,6 +48,10 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2" id="proofr-v02">proofr v0.2<a class="anchor" aria-label="anchor" href="#proofr-v02"></a></h2>
+<ul><li>Change token handling to support a Shiny workflow where we can’t store secrets as env vars. All functions now accept a token, but you can also just set an env var with the token. <code>proof_authenticate</code> no longer sets an env var with the token (<a href="https://github.com/getwilds/proofr/issues/11" class="external-link">#11</a>)</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1" id="proofr-v01">proofr v0.1<a class="anchor" aria-label="anchor" href="#proofr-v01"></a></h2>
 <ul><li>Document server up time of 7 days (<a href="https://github.com/getwilds/proofr/issues/10" class="external-link">#10</a>)</li>
 <li>Set curl timeout so users don’t have to wait so long for timeout failure (<a href="https://github.com/getwilds/proofr/issues/8" class="external-link">#8</a>)</li>
@@ -58,7 +62,8 @@
 <li>rcromwell &lt;–&gt; proofr integration (<a href="https://github.com/getwilds/proofr/issues/2" class="external-link">#2</a>)</li>
 <li>PROOF API token caching (<a href="https://github.com/getwilds/proofr/issues/1" class="external-link">#1</a>)</li>
 </ul></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
