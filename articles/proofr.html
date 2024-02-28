@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">proofr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.93</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,8 @@
 PROOF API with your username and password, and returns an API token (an
 alphanumeric string).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/proof_authenticate.html">proof_authenticate</a></span><span class="op">(</span><span class="st">"username"</span>, <span class="st">"password"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">my_proof_token</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/proof_authenticate.html">proof_authenticate</a></span><span class="op">(</span><span class="st">"username"</span>, <span class="st">"password"</span><span class="op">)</span></span>
+<span><span class="va">my_proof_token</span></span>
 <span><span class="co">#&gt; xyGKibGctQ92rmMKKb39q43XgPxGCmrWoX7NZtamTjDP</span></span></code></pre></div>
 <p>(note: the above token is not a real token)</p>
 <p>On your computer, save your API token as an environment variable
@@ -105,9 +106,10 @@ passing the call to <code>Sys.getenv</code> like
 <p>Start the server</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/proof_start.html">proof_start</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>Get the URL</p>
+<p>Get the URL, using <code>wait=TRUE</code> so that it doesn’t return
+data until the server is fully ready to use</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/proof_status.html">proof_status</a></span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/proof_status.html">proof_status</a></span><span class="op">(</span>wait <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">cromwell_url</span> <span class="op">&lt;-</span> <span class="va">metadata</span><span class="op">$</span><span class="va">cromwellUrl</span></span>
 <span><span class="va">cromwell_url</span></span></code></pre></div>
 </div>
@@ -122,23 +124,32 @@ passing the call to <code>Sys.getenv</code> like
 <span><span class="op">}</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">rcromwell</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/" class="external-link">httr</a></span><span class="op">)</span></span></code></pre></div>
-<p>Set the Cromwell server URL to be recognized by
-<code>rcromwell</code></p>
+<p>There are two options for setting the URL in
+<code>rcromwell</code>.</p>
+<p>The first option is to set the Cromwell server URL to be recognized
+by <code>rcromwell</code> with <code>cromwell_config</code></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">cromwell_config</span><span class="op">(</span><span class="va">cromwell_url</span><span class="op">)</span></span></code></pre></div>
+<p>The other option is to pass the url to each function, for
+example:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">cromwell_jobs</span><span class="op">(</span>url <span class="op">=</span> <span class="va">cromwell_url</span><span class="op">)</span></span></code></pre></div>
 <p>In addition to setting the Cromwell URL, your PROOF API token is also
-required for HTTP requests to your server. As long as you’ve loaded
-<code>rcromwell</code> (via <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(rcromwell)</a></code>) and run
-<code><a href="../reference/proof_authenticate.html">proof_authenticate()</a></code> successfully, then you should be able
-to interact with your Cromwell server!</p>
+required for HTTP requests to your server. After getting your PROOF
+token you can set it as the env var <code>PROOF_TOKEN</code>, or pass it
+to the <code>rcromwell</code> functions, for example:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">cromwell_jobs</span><span class="op">(</span>url <span class="op">=</span> <span class="va">cromwell_url</span>, token <span class="op">=</span> <span class="va">my_proof_token</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="interact-with-the-cromwell-server">Interact with the Cromwell server<a class="anchor" aria-label="anchor" href="#interact-with-the-cromwell-server"></a>
 </h2>
 <p>As an example, <code>cromwell_version()</code> checks the version of
 your Cromwell server</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">cromwell_version</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">cromwell_version</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $cromwell</span></span>
+<span><span class="co">#&gt; [1] "84"</span></span></code></pre></div>
 <p>See the many functions in <a href="https://getwilds.org/rcromwell/reference/" class="external-link">rcromwell
 documentation</a>.</p>
 </div>
