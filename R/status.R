@@ -1,7 +1,11 @@
 #' Get PROOF API job status - is job running, what's its URL...
 #'
 #' @export
+#' @importFrom cli cli_progress_bar cli_progress_update
 #' @inheritParams proof_start
+#' @param wait (logical) if `TRUE` wait for the server to be ready to
+#' interact with. if `FALSE` return immediately, then you'll want to call
+#' this function again until you get the server URL
 #' @references <https://github.com/FredHutch/proof-api#get-cromwell-server>
 #' @section Timeout:
 #' If the PROOF API is unavailable, this function will timeout after
@@ -16,7 +20,11 @@
 #' server not running
 #' - `jobInfo` (list): metadata on the Cromwell server. All slots `NULL`
 #' if server not running
-proof_status <- function(token = NULL) {
+proof_status <- function(wait = FALSE, token = NULL) {
+  if (wait) fetch_wait(token) else fetch_status(token)
+}
+
+fetch_status <- function(token = NULL) {
   response <- GET(
     make_url("cromwell-server"),
     proof_header(token),
@@ -24,4 +32,17 @@ proof_status <- function(token = NULL) {
   )
   stop_for_message(response)
   content(response, as = "parsed")
+}
+
+fetch_wait <- function(token) {
+  cli_progress_bar("Checking server status ...")
+  not_up <- TRUE
+  while (not_up) {
+    tmp <- fetch_status(token = token)
+    if (tmp$jobStatus == "RUNNING" && !is.null(tmp$cromwellUrl)) {
+      not_up <- FALSE
+    }
+    cli_progress_update()
+  }
+  tmp
 }

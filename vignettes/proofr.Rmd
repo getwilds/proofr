@@ -22,7 +22,8 @@ Run the function `proof_authenticate()`, which calls the PROOF API with your use
 
 
 ```r
-proof_authenticate("username", "password")
+my_proof_token <- proof_authenticate("username", "password")
+my_proof_token
 #> xyGKibGctQ92rmMKKb39q43XgPxGCmrWoX7NZtamTjDP
 ```
 
@@ -44,11 +45,11 @@ Start the server
 proof_start()
 ```
 
-Get the URL
+Get the URL, using `wait=TRUE` so that it doesn't return data until the server is fully ready to use
 
 
 ```r
-metadata <- proof_status()
+metadata <- proof_status(wait = TRUE)
 cromwell_url <- metadata$cromwellUrl
 cromwell_url
 ```
@@ -67,14 +68,29 @@ library(rcromwell)
 library(httr)
 ```
 
-Set the Cromwell server URL to be recognized by `rcromwell`
+There are two options for setting the URL in `rcromwell`.
+
+The first option is to set the Cromwell server URL to be recognized by `rcromwell` with `cromwell_config`
 
 
 ```r
 cromwell_config(cromwell_url)
 ```
 
-In addition to setting the Cromwell URL, your PROOF API token is also required for HTTP requests to your server. As long as you've loaded `rcromwell` (via `library(rcromwell)`) and run `proof_authenticate()` successfully, then you should be able to interact with your Cromwell server!
+The other option is to pass the url to each function, for example:
+
+
+```r
+cromwell_jobs(url = cromwell_url)
+```
+
+In addition to setting the Cromwell URL, your PROOF API token is also required for HTTP requests to your server. After getting your PROOF token you can set it as the env var `PROOF_TOKEN`, or pass it to the `rcromwell` functions, for example:
+
+
+```r
+cromwell_jobs(url = cromwell_url, token = my_proof_token)
+```
+
 
 ## Interact with the Cromwell server
 
@@ -83,6 +99,8 @@ As an example, `cromwell_version()` checks the version of your Cromwell server
 
 ```r
 cromwell_version()
+#> $cromwell
+#> [1] "84"
 ```
 
 See the many functions in [rcromwell documentation](https://getwilds.org/rcromwell/reference/).

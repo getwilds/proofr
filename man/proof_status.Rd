@@ -4,9 +4,13 @@
 \alias{proof_status}
 \title{Get PROOF API job status - is job running, what's its URL...}
 \usage{
-proof_status(token = NULL)
+proof_status(wait = FALSE, token = NULL)
 }
 \arguments{
+\item{wait}{(logical) if \code{TRUE} wait for the server to be ready to
+interact with. if \code{FALSE} return immediately, then you'll want to call
+this function again until you get the server URL}
+
 \item{token}{(character) token for bearer authentication with
 the PROOF API. default is \code{NULL}. we do not recommend passing your token
 here as a string. Either pass it using \code{\link[=Sys.getenv]{Sys.getenv()}} or save your

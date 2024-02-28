@@ -48,10 +48,10 @@ Start the server
 proof_start()
 ```
 
-Get the URL
+Get the URL, using `wait=TRUE` so that it doesn't return data until the server is fully ready to use
 
 ```{r cromwell-url}
-metadata <- proof_status()
+metadata <- proof_status(wait = TRUE)
 cromwell_url <- metadata$cromwellUrl
 cromwell_url
 ```
