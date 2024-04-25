@@ -1,4 +1,4 @@
-proof_base <- "https://proof-api.fredhutch.org"
+proof_base <- Sys.getenv("PROOF_API_BASE_URL", "https://proof-api.fredhutch.org")
 
 make_url <- function(...) {
   file.path(proof_base, ...)
