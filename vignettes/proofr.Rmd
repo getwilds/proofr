@@ -18,7 +18,7 @@ library(proofr)
 
 ## Authenticate with the PROOF API
 
-Run the function `proof_authenticate()`, which calls the PROOF API with your username and password, and returns an API token (an alphanumeric string).
+Run the function `proof_authenticate()`, which calls the PROOF API with your username and password, and returns an API token (an alphanumeric string). A new token is created when a new PROOF server is created, thus this API token will need to be reset.  
 
 
 ```r
@@ -29,23 +29,25 @@ my_proof_token
 
 (note: the above token is not a real token)
 
-On your computer, save your API token as an environment variable named `PROOF_TOKEN`.
+Alternatively, save your API token directly as an environment variable named `PROOF_TOKEN` so that it can be used by other `proofr` functions without exposing your token in your code.  To do so run the following. 
 
-If you've saved your `PROOF_TOKEN` env var, then you can use the other `proofr` functions.
+```r
+Sys.setenv("PROOF_TOKEN" = proof_authenticate("username", "password"))
+```
 
-Otherwise, you can pass your PROOF token to the `proofr` functions. If you pass your token to the functions, only do so by passing the call to `Sys.getenv` like `proof_status(token = Sys.getenv("MY_TOKEN"))`.
 
+## Start a PROOF Server
 
-## Start a Cromwell Server
-
-Start the server
+Start a PROOF server
 
 
 ```r
 proof_start()
 ```
+Note: `proofr` assumes you only have one server running and if you've started a server using the app, you'll need to stop that server before starting one in R via `proofr`. 
 
-Get the URL, using `wait=TRUE` so that it doesn't return data until the server is fully ready to use
+
+Get metadata about the PROOF server you have started, including the URL of the API using `wait=TRUE` so that it doesn't return data until the server is fully ready to use.  
 
 
 ```r
@@ -53,6 +55,9 @@ metadata <- proof_status(wait = TRUE)
 cromwell_url <- metadata$cromwellUrl
 cromwell_url
 ```
+
+
+
 
 ## rcromwell setup
 
