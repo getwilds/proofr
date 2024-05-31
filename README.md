@@ -7,6 +7,7 @@
 <!-- badges: start -->
 [![Project Status: Concept – Not useable, no support, not open to feedback, unstable API.](https://getwilds.github.io/badges/badges/concept.svg)](https://getwilds.github.io/badges/#concept)
 [![R-CMD-check](https://github.com/getwilds/proofr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/getwilds/proofr/actions/workflows/R-CMD-check.yaml)
+[![codecov](https://codecov.io/gh/getwilds/proofr/graph/badge.svg?token=G5QFLURUZ4)](https://codecov.io/gh/getwilds/proofr)
 <!-- badges: end -->
 
 R client for the PROOF API
