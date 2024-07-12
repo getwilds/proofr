@@ -2,8 +2,8 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @importFrom httr GET POST DELETE add_headers content
-#' stop_for_status timeout http_status status_code
-#' http_error
+#' @importFrom httr2 request req_perform req_headers
+#' req_timeout req_body_json req_method req_error
+#' resp_status resp_body_json
 ## usethis namespace: end
 NULL

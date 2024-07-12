@@ -4,14 +4,15 @@
 \alias{proof_header}
 \title{Get header for PROOF API calls}
 \usage{
-proof_header(token = NULL)
+proof_header(req, token = NULL)
 }
 \arguments{
+\item{req}{An \code{httr2} request. required}
+
 \item{token}{(character) PROOF API token. optional}
 }
 \value{
-A \code{request} S3 class with the HTTP header that can be passed
-to \code{httr::GET()}, \code{httr::POST()}, etc.
+An \code{httr2_request} S3 class adding an HTTP header
 }
 \description{
 Get header for PROOF API calls

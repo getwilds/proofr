@@ -1,12 +1,12 @@
 test_that("proof_cancel - success", {
   stub_registry_clear()
-  stub_request("delete", make_url("cromwell-server")) %>%
+  stub_request("delete", make_url("cromwell-server")) |>
     to_return(
       body = jsonlite::toJSON(response_cancel_success, auto_unbox = TRUE),
       status = 200L,
       headers = list("Content-type" = "application/json")
     )
-  stub_registry()
+  # stub_registry()
 
   enable(quiet = TRUE)
 
@@ -24,7 +24,7 @@ test_that("proof_cancel - success", {
 })
 
 test_that("proof_cancel - not running, can not cancel", {
-  stub_request("delete", make_url("cromwell-server")) %>%
+  stub_request("delete", make_url("cromwell-server")) |>
     to_return(
       body = jsonlite::toJSON(response_cancel_conflict, auto_unbox = TRUE),
       status = 409L,
@@ -34,7 +34,8 @@ test_that("proof_cancel - not running, can not cancel", {
   enable(quiet = TRUE)
 
   withr::with_envvar(c("PROOF_TOKEN" = "notarealtoken"), {
-    expect_error(proof_cancel(), "Job is not running, nothing to delete")
+    expect_error(proof_cancel(), "HTTP 409 Conflict")
+    expect_error(proof_cancel(), "Additional context")
   })
 
 

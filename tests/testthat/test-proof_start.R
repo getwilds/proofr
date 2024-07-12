@@ -1,5 +1,5 @@
 test_that("proof_start - success", {
-  stub_request("post", make_url("cromwell-server")) %>%
+  stub_request("post", make_url("cromwell-server")) |>
     to_return(
       body = jsonlite::toJSON(response_start_success, auto_unbox = TRUE),
       status = 200L,
@@ -22,7 +22,7 @@ test_that("proof_start - success", {
 })
 
 test_that("proof_start - already running", {
-  stub_request("post", make_url("cromwell-server")) %>%
+  stub_request("post", make_url("cromwell-server")) |>
     to_return(
       body = jsonlite::toJSON(response_start_conflict, auto_unbox = TRUE),
       status = 409L,
@@ -32,7 +32,8 @@ test_that("proof_start - already running", {
   enable(quiet = TRUE)
 
   withr::with_envvar(c("PROOF_TOKEN" = "notarealtoken"), {
-    expect_error(proof_start(), "Job is already running")
+    expect_error(proof_start(), "409")
+    expect_error(proof_cancel(), "Job is already running")
   })
 
 

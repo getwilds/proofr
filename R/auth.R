@@ -12,11 +12,11 @@ find_token <- function(token = NULL) {
 #' Get header for PROOF API calls
 #'
 #' @export
+#' @param req An `httr2` request. required
 #' @param token (character) PROOF API token. optional
-#' @return A `request` S3 class with the HTTP header that can be passed
-#' to `httr::GET()`, `httr::POST()`, etc.
-proof_header <- function(token = NULL) {
-  add_headers(Authorization = paste0("Bearer ", find_token(token)))
+#' @return An `httr2_request` S3 class adding an HTTP header
+proof_header <- function(req, token = NULL) {
+  req_headers(req, Authorization = paste0("Bearer ", find_token(token)))
 }
 
 #' Authenticate with PROOF API
@@ -31,16 +31,13 @@ proof_authenticate <- function(username, password) {
   assert(username, "character")
   assert(password, "character")
 
-  response <- POST(make_url("authenticate"),
-    body = list(
+  request(make_url("authenticate")) |>
+    req_body_json(list(
       username = username,
       password = password
-    ),
-    encode = "json",
-    timeout(proofr_env$timeout_sec)
-  )
-  stop_for_status(response)
-  parsed <- content(response, as = "parsed")
-  token <- parsed$token
-  token
+    )) |>
+    req_timeout(proofr_env$timeout_sec) |>
+    req_perform() |>
+    resp_body_json() |>
+    {\(x) x$token}()
 }
