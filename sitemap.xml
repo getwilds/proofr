@@ -1,54 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://getwilds.org/proofr/404.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/articles/proofr.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/authors.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/index.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/news/index.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/proof_authenticate.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/proof_cancel.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/proof_header.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/proof_start.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/proof_status.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/proof_timeout.html</loc>
-  </url>
-  <url>
-    <loc>http://getwilds.org/proofr/reference/proofr-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>http://getwilds.org/proofr/404.html</loc></url>
+<url><loc>http://getwilds.org/proofr/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>http://getwilds.org/proofr/LICENSE-text.html</loc></url>
+<url><loc>http://getwilds.org/proofr/LICENSE.html</loc></url>
+<url><loc>http://getwilds.org/proofr/articles/index.html</loc></url>
+<url><loc>http://getwilds.org/proofr/articles/proofr.html</loc></url>
+<url><loc>http://getwilds.org/proofr/authors.html</loc></url>
+<url><loc>http://getwilds.org/proofr/index.html</loc></url>
+<url><loc>http://getwilds.org/proofr/news/index.html</loc></url>
+<url><loc>http://getwilds.org/proofr/reference/index.html</loc></url>
+<url><loc>http://getwilds.org/proofr/reference/proof_authenticate.html</loc></url>
+<url><loc>http://getwilds.org/proofr/reference/proof_cancel.html</loc></url>
+<url><loc>http://getwilds.org/proofr/reference/proof_header.html</loc></url>
+<url><loc>http://getwilds.org/proofr/reference/proof_start.html</loc></url>
+<url><loc>http://getwilds.org/proofr/reference/proof_status.html</loc></url>
+<url><loc>http://getwilds.org/proofr/reference/proof_timeout.html</loc></url>
+<url><loc>http://getwilds.org/proofr/reference/proofr-package.html</loc></url>
 </urlset>
+
