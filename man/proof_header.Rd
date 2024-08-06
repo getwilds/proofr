@@ -12,7 +12,8 @@ proof_header(req, token = NULL)
 \item{token}{(character) PROOF API token. optional}
 }
 \value{
-An \code{httr2_request} S3 class adding an HTTP header
+An \code{httr2_request} S3 class adding an HTTP header for
+\code{Authorization} with the value in \code{token}
 }
 \description{
 Get header for PROOF API calls

@@ -14,7 +14,8 @@ find_token <- function(token = NULL) {
 #' @export
 #' @param req An `httr2` request. required
 #' @param token (character) PROOF API token. optional
-#' @return An `httr2_request` S3 class adding an HTTP header
+#' @return An `httr2_request` S3 class adding an HTTP header for
+#' `Authorization` with the value in `token`
 proof_header <- function(req, token = NULL) {
   req_headers(req, Authorization = paste0("Bearer ", find_token(token)))
 }
