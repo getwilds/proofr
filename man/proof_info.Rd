@@ -9,8 +9,6 @@ proof_info()
 \value{
 A list with fields:
 \itemize{
-\item \code{logged_in_user} (character): NULL unless authentication header is sent
-\item \code{api_endpoint} (character): the URL for the PROOF API
 \item \code{branch} (character): git branch of API
 \item \code{commit_sha} (character): SHA of the git commit of the API
 \item \code{short_commit_sha} (character): the first eight characters of \code{commit_sha}

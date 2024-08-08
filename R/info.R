@@ -3,8 +3,6 @@
 #' @export
 #' @references <https://github.com/FredHutch/proof-api?tab=readme-ov-file#get-info>
 #' @return A list with fields:
-#' - `logged_in_user` (character): NULL unless authentication header is sent
-#' - `api_endpoint` (character): the URL for the PROOF API
 #' - `branch` (character): git branch of API
 #' - `commit_sha` (character): SHA of the git commit of the API
 #' - `short_commit_sha` (character): the first eight characters of `commit_sha`

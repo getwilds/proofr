@@ -59,8 +59,6 @@ response_authenticate_success <- list(
 )
 
 response_info_success <- list (
-  logged_in_user = "someone",
-  api_endpoint = "https://proof-api.fredhutch.org",
   branch = "main",
   commit_sha = "c4b85200632c2f9bd5e8173179208c3b32c7db7a",
   short_commit_sha = "c4b85200",
