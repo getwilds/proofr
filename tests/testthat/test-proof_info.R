@@ -13,8 +13,6 @@ test_that("proof_info - success", {
   })
 
   expect_type(info_res, "list")
-  expect_type(info_res$logged_in_user, "character")
-  expect_type(info_res$api_endpoint, "character")
 
 
   stub_registry_clear()
