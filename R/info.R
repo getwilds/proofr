@@ -9,11 +9,10 @@
 #' - `commit_message` (character): the commit message of the API's most recent commit
 #' - `tag` (character): tag of most recent commit; if this does not contain a hyphen, it's a release version
 proof_info <- function() {
-  response <- GET(
-    make_url("info"),
-    timeout(proofr_env$timeout_sec)
-  )
-  stop_for_message(response)
-  content(response, as = "parsed")
+  request(make_url("info")) |>
+    req_timeout(proofr_env$timeout_sec) |>
+    req_error(body = error_body) |>
+    req_perform() |>
+    resp_body_json()
 }
 
