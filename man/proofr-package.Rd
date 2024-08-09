@@ -11,7 +11,8 @@ Client for the PROOF API.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://getwilds.org/proofr/ (website) https://github.com/getwilds/proofr (devel)}
+  \item \url{http://getwilds.org/proofr/}
+  \item \url{https://github.com/getwilds/proofr}
 }
 
 }

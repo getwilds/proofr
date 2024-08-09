@@ -26,13 +26,11 @@
 #' - `job_id` (character) - the job ID
 #' - `info` (character) - message
 proof_start <- function(slurm_account = NULL, token = NULL) {
-  response <- POST(
-    make_url("cromwell-server"),
-    proof_header(token),
-    body = list(slurm_account = slurm_account),
-    encode = "json",
-    timeout(proofr_env$timeout_sec)
-  )
-  stop_for_message(response)
-  content(response, as = "parsed")
+  request(make_url("cromwell-server")) |>
+    req_body_json(list(slurm_account = slurm_account)) |>
+    proof_header(token) |>
+    req_timeout(proofr_env$timeout_sec) |>
+    req_error(body = error_body) |>
+    req_perform() |>
+    resp_body_json()
 }

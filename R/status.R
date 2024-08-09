@@ -25,13 +25,12 @@ proof_status <- function(wait = FALSE, token = NULL) {
 }
 
 fetch_status <- function(token = NULL) {
-  response <- GET(
-    make_url("cromwell-server"),
-    proof_header(token),
-    timeout(proofr_env$timeout_sec)
-  )
-  stop_for_message(response)
-  content(response, as = "parsed")
+  request(make_url("cromwell-server")) |>
+    proof_header(token) |>
+    req_timeout(proofr_env$timeout_sec) |>
+    req_error(body = error_body) |>
+    req_perform() |>
+    resp_body_json()
 }
 
 fetch_wait <- function(token) {
