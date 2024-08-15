@@ -1,5 +1,5 @@
 test_that("proof_status - server IS running", {
-  stub_request("get", make_url("cromwell-server")) %>%
+  stub_request("get", make_url("cromwell-server")) |>
     to_return(
       body = jsonlite::toJSON(
         response_status_running,
@@ -30,7 +30,7 @@ test_that("proof_status - server IS running", {
 })
 
 test_that("proof_status - server IS NOT running", {
-  stub_request("get", make_url("cromwell-server")) %>%
+  stub_request("get", make_url("cromwell-server")) |>
     to_return(
       body = jsonlite::toJSON(
         response_status_not_running,

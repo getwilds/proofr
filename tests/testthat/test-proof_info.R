@@ -14,6 +14,11 @@ test_that("proof_info - success", {
 
   expect_type(info_res, "list")
 
+  # also works w/o token as it's not needed for this fxn
+  info_res_wo_token <- proof_info()
+
+  expect_type(info_res_wo_token, "list")
+
 
   stub_registry_clear()
   disable(quiet = TRUE)
