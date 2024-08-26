@@ -18,6 +18,12 @@ the PROOF API
 \description{
 Authenticate with PROOF API
 }
+\details{
+We strongly recommend to not supply \code{password} as plain text like
+\code{proof_authenticate(username = "jane", password = "mypassword")}, but rather
+pull in your password from an environment variable stored outside of R like
+\code{proof_authenticate(username = "jane", password = Sys.getenv("HUTCH_PWD"))}
+}
 \section{Timeout}{
 
 If the PROOF API is unavailable, this function will timeout after
