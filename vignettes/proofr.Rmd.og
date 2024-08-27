@@ -63,7 +63,7 @@ Load  `rcromwell`
 ```{r setup-rcromwell}
 if (!requireNamespace("rcromwell", quietly=TRUE)) {
   install.packages("pak")
-  pak::pak("rcromwell")
+  pak::pak("getwilds/rcromwell")
 }
 library(rcromwell)
 library(httr)
