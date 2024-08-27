@@ -12,7 +12,7 @@ vignette: >
 Load `proofr`
 
 
-```r
+``` r
 library(proofr)
 ```
 
@@ -21,7 +21,7 @@ library(proofr)
 Run the function `proof_authenticate()`, which calls the PROOF API with your username and password, and returns an API token (an alphanumeric string).
 
 
-```r
+``` r
 my_proof_token <- proof_authenticate("username", "password")
 my_proof_token
 #> xyGKibGctQ92rmMKKb39q43XgPxGCmrWoX7NZtamTjDP
@@ -32,16 +32,18 @@ my_proof_token
 Alternatively, save your API token directly as an environment variable named `PROOF_TOKEN` so that it can be used by other `proofr` functions without exposing your token in your code.  To do so, run the following: 
 
 
-```r
+``` r
 Sys.setenv("PROOF_TOKEN" = proof_authenticate("username", "password"))
 ```
+
+Instead of just setting your token for the current R session, you can set a token that can be used across sessions by putting your token in a file that is read in by R when it starts up. Create a `~/.Renviron` file (if it doesn't exist already) that contains `PROOF_TOKEN=your-token-here` and it will be available in your R session. Run `chmod 0400 ~/.Renviron` to make sure only you can see its contents. Make sure to restart your R session after any changes to this file so the changes are picked up.
 
 ## Start a PROOF Server
 
 Start a PROOF server using the `proof_start()` function:
 
 
-```r
+``` r
 proof_start()
 ```
 Note: `proofr` assumes you only have one server running; if you've started a server using the app, you'll need to stop that server before starting one in R via `proofr`. 
@@ -49,7 +51,7 @@ Note: `proofr` assumes you only have one server running; if you've started a ser
 Get metadata about the PROOF server you have started, including the URL of the API, using `wait=TRUE` so that it doesn't return data until the server is fully ready to use.  
 
 
-```r
+``` r
 metadata <- proof_status(wait = TRUE)
 cromwell_url <- metadata$cromwellUrl
 cromwell_url
@@ -60,7 +62,7 @@ cromwell_url
 Load  `rcromwell`
 
 
-```r
+``` r
 if (!requireNamespace("rcromwell", quietly=TRUE)) {
   install.packages("pak")
   pak::pak("rcromwell")
@@ -74,21 +76,21 @@ There are two options for setting the URL in `rcromwell`.
 The first option is to set the Cromwell server URL to be recognized by `rcromwell` with `cromwell_config`
 
 
-```r
+``` r
 cromwell_config(cromwell_url)
 ```
 
 The other option is to pass the url to each function, for example:
 
 
-```r
+``` r
 cromwell_jobs(url = cromwell_url)
 ```
 
 In addition to setting the Cromwell URL, your PROOF API token is also required for HTTP requests to your server. After getting your PROOF token you can set it as the env var `PROOF_TOKEN`, or pass it to the `rcromwell` functions, for example:
 
 
-```r
+``` r
 cromwell_jobs(url = cromwell_url, token = my_proof_token)
 ```
 
@@ -98,7 +100,7 @@ cromwell_jobs(url = cromwell_url, token = my_proof_token)
 As an example, `cromwell_version()` checks the version of your Cromwell server
 
 
-```r
+``` r
 cromwell_version()
 #> $cromwell
 #> [1] "84"
