@@ -19,6 +19,3 @@ A list with fields:
 \description{
 Get information about PROOF server
 }
-\references{
-\url{https://github.com/FredHutch/proof-api?tab=readme-ov-file#get-info}
-}

@@ -40,6 +40,3 @@ If the PROOF API is unavailable, this function will timeout after
 See \code{\link[=proof_timeout]{proof_timeout()}}.
 }
 
-\references{
-\url{https://github.com/FredHutch/proof-api#get-cromwell-server}
-}

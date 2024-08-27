@@ -1,7 +1,6 @@
 #' Get information about PROOF server
 #'
 #' @export
-#' @references <https://github.com/FredHutch/proof-api?tab=readme-ov-file#get-info>
 #' @return A list with fields:
 #' - `branch` (character): git branch of API
 #' - `commit_sha` (character): SHA of the git commit of the API
