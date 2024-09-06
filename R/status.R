@@ -6,7 +6,6 @@
 #' @param wait (logical) if `TRUE` wait for the server to be ready to
 #' interact with. if `FALSE` return immediately, then you'll want to call
 #' this function again until you get the server URL
-#' @references <https://github.com/FredHutch/proof-api#get-cromwell-server>
 #' @section Timeout:
 #' If the PROOF API is unavailable, this function will timeout after
 #' 5 seconds. Contact the package maintainer if you get a timeout error.

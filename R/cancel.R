@@ -2,7 +2,6 @@
 #'
 #' @export
 #' @inheritParams proof_start
-#' @references <https://github.com/FredHutch/proof-api#delete-cromwell-server>
 #' @inheritSection proof_status Timeout
 #' @return On success, a list with a single field:
 #' - `message` (character)

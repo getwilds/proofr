@@ -10,11 +10,9 @@
 #' here as a string. Either pass it using [Sys.getenv()] or save your
 #' token as an env var and then passing nothing to this param and we'll find
 #' it
-#' @references <https://github.com/FredHutch/proof-api/#post-cromwell-server>
 #' @details Does not return PROOF/Cromwell server URL, for that you have to
 #' periodically call [proof_status()], or wait for the email from the
-#' PROOF API. See the link to proof-api for more details about the
-#' slurm account.
+#' PROOF API
 #' @inheritSection proof_status Timeout
 #' @section Cromwell Server uptime:
 #' The Cromwell server started by this function will run for 7 days
