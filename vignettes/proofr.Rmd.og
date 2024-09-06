@@ -39,6 +39,8 @@ Alternatively, save your API token directly as an environment variable named `PR
 Sys.setenv("PROOF_TOKEN" = proof_authenticate("username", "password"))
 ```
 
+Instead of just setting your token for the current R session, you can set a token that can be used across sessions by putting your token in a file that is read in by R when it starts up. Create a `~/.Renviron` file (if it doesn't exist already) that contains `PROOF_TOKEN=your-token-here` and it will be available in your R session. Run `chmod 0400 ~/.Renviron` to make sure only you can see its contents. Make sure to restart your R session after any changes to this file so the changes are picked up.
+
 ## Start a PROOF Server
 
 Start a PROOF server using the `proof_start()` function:
