@@ -28,6 +28,10 @@ proof_header <- function(req, token = NULL) {
 #' @inheritSection proof_status Timeout
 #' @return A single token (character) for bearer authentication with
 #' the PROOF API
+#' @details We strongly recommend to not supply `password` as plain text like
+#' `proof_authenticate(username = "jane", password = "mypassword")`, but rather
+#' pull in your password from an environment variable stored outside of R like
+#' `proof_authenticate(username = "jane", password = Sys.getenv("HUTCH_PWD"))`
 proof_authenticate <- function(username, password) {
   assert(username, "character")
   assert(password, "character")

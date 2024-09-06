@@ -18,11 +18,12 @@ library(proofr)
 
 ## Authenticate with the PROOF API
 
-Run the function `proof_authenticate()`, which calls the PROOF API with your username and password, and returns an API token (an alphanumeric string).
+Run the function `proof_authenticate()`, which calls the PROOF API with your HutchNet username and password, and returns an API token (an alphanumeric string). 
 
+We strongly recommend to not supply `password` to `proof_authenticate` as plain text like, and instead pull in your password from an environment variable stored outside of R. For a description of different options for where to store your HutchNet password see the [R Startup chapter](https://rstats.wtf/r-startup) in the book _What They Forgot to Teach You About R_.
 
 ``` r
-my_proof_token <- proof_authenticate("username", "password")
+my_proof_token <- proof_authenticate(username = "username", password = Sys.getenv("HUTCHNET_PWD"))
 my_proof_token
 #> xyGKibGctQ92rmMKKb39q43XgPxGCmrWoX7NZtamTjDP
 ```
