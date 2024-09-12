@@ -12,8 +12,8 @@ A list with fields:
 \item \code{branch} (character): git branch of API
 \item \code{commit_sha} (character): SHA of the git commit of the API
 \item \code{short_commit_sha} (character): the first eight characters of \code{commit_sha}
-\item \code{commit_message} (character): the commit message of the API's most recent commit
-\item \code{tag} (character): tag of most recent commit; if this does not contain a hyphen, it's a release version
+\item \code{commit_message} (character): commit message of API's most recent commit
+\item \code{tag} (character): tag of most recent commit/release version
 }
 }
 \description{
