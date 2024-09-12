@@ -10,6 +10,6 @@ test_that("proof_header", {
   # If PROOF_TOKEN env var set, fxn can find it
   withr::with_envvar(c("PROOF_TOKEN" = "notarealtoken"), {
     expect_match(proof_header(request(""))$headers[[1]],
-      "notarealtoken")
+                 "notarealtoken")
   })
 })
