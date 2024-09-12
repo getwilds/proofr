@@ -36,15 +36,13 @@ proof_authenticate <- function(username, password) {
   assert(username, "character")
   assert(password, "character")
 
-  request(make_url("authenticate")) |>
+  response <- request(make_url("authenticate")) |>
     req_body_json(list(
       username = username,
       password = password
     )) |>
     req_timeout(proofr_env$timeout_sec) |>
     req_perform() |>
-    resp_body_json() |>
-    {
-      \(x) x$token
-    }()
+    resp_body_json()
+  response$token
 }
