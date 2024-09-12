@@ -6,7 +6,6 @@ test_that("proof_cancel - success", {
       status = 200L,
       headers = list("Content-type" = "application/json")
     )
-  # stub_registry()
 
   enable(quiet = TRUE)
 
