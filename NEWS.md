@@ -1,3 +1,9 @@
+# proofr v0.3.0
+
+* Swapping `httr` for `httr2` (@sckott in [#25](https://github.com/getwilds/proofr/pull/25))
+* Improving documentation (@sckott in [#27](https://github.com/getwilds/proofr/pull/27), [#28](https://github.com/getwilds/proofr/pull/28), [#29](https://github.com/getwilds/proofr/pull/29), [#30](https://github.com/getwilds/proofr/pull/30))
+* Fixing linting errors identified by GitHub Action (@tefirman and @sckott in [#32](https://github.com/getwilds/proofr/pull/32))
+
 # proofr v0.2
 
 * Change token handling to support a Shiny workflow where we can't store secrets as env vars. All functions now accept a token, but you can also just set an env var with the token. `proof_authenticate` no longer sets an env var with the token (#11)
