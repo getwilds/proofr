@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">proofr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.94</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1.91</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,10 +67,17 @@
 <h2 id="authenticate-with-the-proof-api">Authenticate with the PROOF API<a class="anchor" aria-label="anchor" href="#authenticate-with-the-proof-api"></a>
 </h2>
 <p>Run the function <code><a href="../reference/proof_authenticate.html">proof_authenticate()</a></code>, which calls the
-PROOF API with your username and password, and returns an API token (an
-alphanumeric string).</p>
+PROOF API with your HutchNet username and password, and returns an API
+token (an alphanumeric string).</p>
+<p>We strongly recommend to not supply <code>password</code> to
+<code>proof_authenticate</code> as plain text like, and instead pull in
+your password from an environment variable stored outside of R. For a
+description of different options for where to store your HutchNet
+password see the <a href="https://rstats.wtf/r-startup" class="external-link">R Startup
+chapter</a> in the book <em>What They Forgot to Teach You About
+R</em>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">my_proof_token</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/proof_authenticate.html">proof_authenticate</a></span><span class="op">(</span><span class="st">"username"</span>, <span class="st">"password"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">my_proof_token</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/proof_authenticate.html">proof_authenticate</a></span><span class="op">(</span>username <span class="op">=</span> <span class="st">"username"</span>, password <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"HUTCHNET_PWD"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">my_proof_token</span></span>
 <span><span class="co">#&gt; xyGKibGctQ92rmMKKb39q43XgPxGCmrWoX7NZtamTjDP</span></span></code></pre></div>
 <p>(note: the above token is not a real token)</p>
@@ -80,6 +87,14 @@ variable named <code>PROOF_TOKEN</code> so that it can be used by other
 To do so, run the following:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span><span class="st">"PROOF_TOKEN"</span> <span class="op">=</span> <span class="fu"><a href="../reference/proof_authenticate.html">proof_authenticate</a></span><span class="op">(</span><span class="st">"username"</span>, <span class="st">"password"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Instead of just setting your token for the current R session, you can
+set a token that can be used across sessions by putting your token in a
+file that is read in by R when it starts up. Create a
+<code>~/.Renviron</code> file (if it doesn’t exist already) that
+contains <code>PROOF_TOKEN=your-token-here</code> and it will be
+available in your R session. Run <code>chmod 0400 ~/.Renviron</code> to
+make sure only you can see its contents. Make sure to restart your R
+session after any changes to this file so the changes are picked up.</p>
 </div>
 <div class="section level2">
 <h2 id="start-a-proof-server">Start a PROOF Server<a class="anchor" aria-label="anchor" href="#start-a-proof-server"></a>
@@ -106,7 +121,7 @@ data until the server is fully ready to use.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"rcromwell"</span>, quietly<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
-<span>  <span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"rcromwell"</span><span class="op">)</span></span>
+<span>  <span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"getwilds/rcromwell"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">rcromwell</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/" class="external-link">httr</a></span><span class="op">)</span></span></code></pre></div>
