@@ -31,8 +31,7 @@ Start PROOF Cromwell server
 \details{
 Does not return PROOF/Cromwell server URL, for that you have to
 periodically call \code{\link[=proof_status]{proof_status()}}, or wait for the email from the
-PROOF API. See the link to proof-api for more details about the
-slurm account.
+PROOF API
 }
 \section{Cromwell Server uptime}{
 
@@ -50,6 +49,3 @@ If the PROOF API is unavailable, this function will timeout after
 See \code{\link[=proof_timeout]{proof_timeout()}}.
 }
 
-\references{
-\url{https://github.com/FredHutch/proof-api/#post-cromwell-server}
-}

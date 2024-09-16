@@ -23,10 +23,12 @@ library(proofr)
 
 ## Authenticate with the PROOF API
 
-Run the function `proof_authenticate()`, which calls the PROOF API with your username and password, and returns an API token (an alphanumeric string).
+Run the function `proof_authenticate()`, which calls the PROOF API with your HutchNet username and password, and returns an API token (an alphanumeric string). 
+
+We strongly recommend to not supply `password` to `proof_authenticate` as plain text like, and instead pull in your password from an environment variable stored outside of R. For a description of different options for where to store your HutchNet password see the [R Startup chapter](https://rstats.wtf/r-startup) in the book _What They Forgot to Teach You About R_.
 
 ```{r auth}
-my_proof_token <- proof_authenticate("username", "password")
+my_proof_token <- proof_authenticate(username = "username", password = Sys.getenv("HUTCHNET_PWD"))
 my_proof_token
 #> xyGKibGctQ92rmMKKb39q43XgPxGCmrWoX7NZtamTjDP
 ```
@@ -38,6 +40,8 @@ Alternatively, save your API token directly as an environment variable named `PR
 ```{r set-env-token}
 Sys.setenv("PROOF_TOKEN" = proof_authenticate("username", "password"))
 ```
+
+Instead of just setting your token for the current R session, you can set a token that can be used across sessions by putting your token in a file that is read in by R when it starts up. Create a `~/.Renviron` file (if it doesn't exist already) that contains `PROOF_TOKEN=your-token-here` and it will be available in your R session. Run `chmod 0400 ~/.Renviron` to make sure only you can see its contents. Make sure to restart your R session after any changes to this file so the changes are picked up.
 
 ## Start a PROOF Server
 
@@ -63,7 +67,7 @@ Load  `rcromwell`
 ```{r setup-rcromwell}
 if (!requireNamespace("rcromwell", quietly=TRUE)) {
   install.packages("pak")
-  pak::pak("rcromwell")
+  pak::pak("getwilds/rcromwell")
 }
 library(rcromwell)
 library(httr)

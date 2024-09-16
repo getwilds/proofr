@@ -33,6 +33,7 @@ To get started with `proofr`, see the [Getting Started vignette](https://getwild
 ## Notes
 
 - There are no plans to submit this package to CRAN. Therefore, you should not depend on this package in any packages you have on CRAN.
+- Base URL: The base URL for the PROOF API can be changed by setting the environment variable `PROOF_API_BASE_URL`. It can be set for an R session or for function by function use as we check that env var in each function call to the API.
 
 ## Bugs? Features?
 

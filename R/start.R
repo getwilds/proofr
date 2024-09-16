@@ -10,11 +10,9 @@
 #' here as a string. Either pass it using [Sys.getenv()] or save your
 #' token as an env var and then passing nothing to this param and we'll find
 #' it
-#' @references <https://github.com/FredHutch/proof-api/#post-cromwell-server>
 #' @details Does not return PROOF/Cromwell server URL, for that you have to
 #' periodically call [proof_status()], or wait for the email from the
-#' PROOF API. See the link to proof-api for more details about the
-#' slurm account.
+#' PROOF API
 #' @inheritSection proof_status Timeout
 #' @section Cromwell Server uptime:
 #' The Cromwell server started by this function will run for 7 days
@@ -26,13 +24,11 @@
 #' - `job_id` (character) - the job ID
 #' - `info` (character) - message
 proof_start <- function(slurm_account = NULL, token = NULL) {
-  response <- POST(
-    make_url("cromwell-server"),
-    proof_header(token),
-    body = list(slurm_account = slurm_account),
-    encode = "json",
-    timeout(proofr_env$timeout_sec)
-  )
-  stop_for_message(response)
-  content(response, as = "parsed")
+  request(make_url("cromwell-server")) |>
+    req_body_json(list(slurm_account = slurm_account)) |>
+    proof_header(token) |>
+    req_timeout(proofr_env$timeout_sec) |>
+    req_error(body = error_body) |>
+    req_perform() |>
+    resp_body_json()
 }

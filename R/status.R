@@ -6,7 +6,6 @@
 #' @param wait (logical) if `TRUE` wait for the server to be ready to
 #' interact with. if `FALSE` return immediately, then you'll want to call
 #' this function again until you get the server URL
-#' @references <https://github.com/FredHutch/proof-api#get-cromwell-server>
 #' @section Timeout:
 #' If the PROOF API is unavailable, this function will timeout after
 #' 5 seconds. Contact the package maintainer if you get a timeout error.
@@ -25,13 +24,12 @@ proof_status <- function(wait = FALSE, token = NULL) {
 }
 
 fetch_status <- function(token = NULL) {
-  response <- GET(
-    make_url("cromwell-server"),
-    proof_header(token),
-    timeout(proofr_env$timeout_sec)
-  )
-  stop_for_message(response)
-  content(response, as = "parsed")
+  request(make_url("cromwell-server")) |>
+    proof_header(token) |>
+    req_timeout(proofr_env$timeout_sec) |>
+    req_error(body = error_body) |>
+    req_perform() |>
+    resp_body_json()
 }
 
 fetch_wait <- function(token) {
