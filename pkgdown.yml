@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   proofr: proofr.html
-last_built: 2024-09-16T23:17Z
+last_built: 2024-09-16T23:27Z
 urls:
   reference: http://getwilds.org/proofr/reference
   article: http://getwilds.org/proofr/articles
