@@ -4,11 +4,11 @@
 \alias{proof_timeout}
 \title{Set the timeout for all requests to the PROOF API}
 \usage{
-proof_timeout(sec = 10)
+proof_timeout(sec = 20)
 }
 \arguments{
 \item{sec}{(integer/numeric) number of seconds after which
-requests will timeout. default: 10 sec (10000 ms)}
+requests will timeout. default: 20 sec (20000 ms)}
 }
 \value{
 nothing, side effect of setting the timeout for requests
