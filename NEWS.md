@@ -1,3 +1,7 @@
+# proofr v0.4.0
+
+* Bumping timeout from 5 seconds to 20 seconds (@sckott in [direct commit](https://github.com/getwilds/proofr/commit/cbe9062fd73e61992b46035e7ac2241cd8de2541))
+
 # proofr v0.3.0
 
 * Swapping `httr` for `httr2` (@sckott in [#25](https://github.com/getwilds/proofr/pull/25))
