@@ -8,7 +8,7 @@
 #' this function again until you get the server URL
 #' @section Timeout:
 #' If the PROOF API is unavailable, this function will timeout after
-#' 5 seconds. Contact the package maintainer if you get a timeout error.
+#' 20 seconds. Contact the package maintainer if you get a timeout error.
 #' See [proof_timeout()].
 #' @return A list with fields:
 #' - `canJobStart` (logical): can a job to make a Cromwell server be started?

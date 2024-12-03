@@ -27,7 +27,7 @@ Cancel/stop PROOF Cromwell server
 \section{Timeout}{
 
 If the PROOF API is unavailable, this function will timeout after
-5 seconds. Contact the package maintainer if you get a timeout error.
+20 seconds. Contact the package maintainer if you get a timeout error.
 See \code{\link[=proof_timeout]{proof_timeout()}}.
 }
 
