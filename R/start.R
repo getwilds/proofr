@@ -23,7 +23,7 @@
 #' You do however need to have a Cromwell server up and running to
 #' retrieve data.
 #' @return A list with fields:
-#' - `job_id` (character) - the job ID
+#' - `job_id` (character) - the job ID =
 #' - `info` (character) - message
 proof_start <- function(slurm_account = NULL, token = NULL, regulated_data = FALSE) {
   request(make_url("cromwell-server")) |>

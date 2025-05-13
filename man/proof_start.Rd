@@ -4,7 +4,7 @@
 \alias{proof_start}
 \title{Start PROOF Cromwell server}
 \usage{
-proof_start(slurm_account = NULL, token = NULL)
+proof_start(slurm_account = NULL, token = NULL, regulated_data = FALSE)
 }
 \arguments{
 \item{slurm_account}{(character) PI name in the form \code{last_f}, where last
@@ -17,11 +17,14 @@ the PROOF API. default is \code{NULL}. we do not recommend passing your token
 here as a string. Either pass it using \code{\link[=Sys.getenv]{Sys.getenv()}} or save your
 token as an env var and then passing nothing to this param and we'll find
 it}
+
+\item{regulated_data}{(logical) whether to use a scratch directory
+in regulated storage.}
 }
 \value{
 A list with fields:
 \itemize{
-\item \code{job_id} (character) - the job ID
+\item \code{job_id} (character) - the job ID =
 \item \code{info} (character) - message
 }
 }
