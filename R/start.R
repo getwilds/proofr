@@ -29,7 +29,7 @@ proof_start <- function(slurm_account = NULL,
                         token = NULL, regulated_data = FALSE) {
   request(make_url("cromwell-server")) |>
     req_body_json(list(slurm_account = slurm_account,
-                 regulated_data = regulated_data)) |>
+                       regulated_data = regulated_data)) |>
     proof_header(token) |>
     req_timeout(proofr_env$timeout_sec) |>
     req_error(body = error_body) |>
