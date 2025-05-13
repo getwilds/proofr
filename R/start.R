@@ -10,6 +10,8 @@
 #' here as a string. Either pass it using [Sys.getenv()] or save your
 #' token as an env var and then passing nothing to this param and we'll find
 #' it
+#' @param regulated_data (logical) whether to use a scratch directory
+#' in regulated storage.
 #' @details Does not return PROOF/Cromwell server URL, for that you have to
 #' periodically call [proof_status()], or wait for the email from the
 #' PROOF API
@@ -23,9 +25,9 @@
 #' @return A list with fields:
 #' - `job_id` (character) - the job ID
 #' - `info` (character) - message
-proof_start <- function(slurm_account = NULL, token = NULL) {
+proof_start <- function(slurm_account = NULL, token = NULL, regulated_data = FALSE) {
   request(make_url("cromwell-server")) |>
-    req_body_json(list(slurm_account = slurm_account)) |>
+    req_body_json(list(slurm_account = slurm_account, regulated_data = regulated_data)) |>
     proof_header(token) |>
     req_timeout(proofr_env$timeout_sec) |>
     req_error(body = error_body) |>
