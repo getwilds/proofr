@@ -1,7 +1,7 @@
 Package: proofr
 Title: Client for the PROOF API
-Version: 0.4.0
-Authors@R: 
+Version: 0.4.1
+Authors@R:
     person("Scott", "Chamberlain", , "sachamber@fredhutch.org", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-1444-9135"))
 Description: Client for the PROOF API.
@@ -15,7 +15,7 @@ Imports:
     cli,
     glue,
     httr2
-Suggests: 
+Suggests:
     jsonlite,
     knitr,
     rmarkdown,
