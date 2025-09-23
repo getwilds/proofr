@@ -1,3 +1,8 @@
+# proofr v0.5.0
+
+* Support for regulated data features in the PROOF API
+* Formatting code - changed to using Posit's air formatter
+
 # proofr v0.4.0
 
 * Bumping timeout from 5 seconds to 20 seconds (@sckott in [direct commit](https://github.com/getwilds/proofr/commit/cbe9062fd73e61992b46035e7ac2241cd8de2541))
