@@ -17,7 +17,6 @@ test_that("proof_cancel - success", {
   expect_type(cancel_res$message, "character")
   expect_match(cancel_res$message, "cancelled")
 
-
   stub_registry_clear()
   disable(quiet = TRUE)
 })
@@ -36,7 +35,6 @@ test_that("proof_cancel - not running, can not cancel", {
     expect_error(proof_cancel(), "HTTP 409 Conflict")
     expect_error(proof_cancel(), "Additional context")
   })
-
 
   stub_registry_clear()
   disable(quiet = TRUE)

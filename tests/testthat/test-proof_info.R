@@ -19,7 +19,6 @@ test_that("proof_info - success", {
 
   expect_type(info_res_wo_token, "list")
 
-
   stub_registry_clear()
   disable(quiet = TRUE)
 })

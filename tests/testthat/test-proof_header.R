@@ -2,7 +2,9 @@
 
 test_that("proof_header", {
   # errors if no env var set and no string supplied
-  expect_error(proof_header(request("")), "token not found")
+  withr::with_envvar(new = c("PROOF_TOKEN" = ""), {
+    expect_error(proof_header(request("")), "token not found")
+  })
 
   # returns token if given
   expect_match(proof_header(request(""), "adf")$headers[[1]], "adf")

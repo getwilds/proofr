@@ -16,7 +16,6 @@ test_that("proof_start - success", {
   expect_type(start_res$job_id, "character")
   expect_type(start_res$info, "character")
 
-
   stub_registry_clear()
   disable(quiet = TRUE)
 })
@@ -35,7 +34,6 @@ test_that("proof_start - already running", {
     expect_error(proof_start(), "409")
     expect_error(proof_cancel(), "Job is already running")
   })
-
 
   stub_registry_clear()
   disable(quiet = TRUE)

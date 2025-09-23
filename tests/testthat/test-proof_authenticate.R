@@ -44,7 +44,6 @@ test_that("proof_start - success", {
   expect_type(auth_res, "character")
   expect_equal(auth_res, "somerandomstring")
 
-
   stub_registry_clear()
   disable(quiet = TRUE)
   Sys.unsetenv("PROOF_TOKEN")

@@ -31,12 +31,7 @@ readme:
 	${RSCRIPT} -e "knitr::knit('README.Rmd')"
 
 lint_package:
-	${RSCRIPT} -e "lintr::lint_package()"
+	air format . --check
 
-# use: `make style_file FILE=stuff.R`
-# ("R/" is prepended); accepts 1 file only
-style_file:
-	${RSCRIPT} -e 'styler::style_file(${FILE_TARGET})'
-
-style_package:
-	${RSCRIPT} -e "styler::style_pkg()"
+fix_package:
+	air format .
