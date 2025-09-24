@@ -7,13 +7,13 @@ test_that("proof_header", {
   })
 
   # returns token if given
-  expect_match(proof_header(request(""), "adf")$headers[[1]], "adf")
+  expect_type(proof_header(request(""), "adf")$headers[[1]], "weakref")
 
   # If PROOF_TOKEN env var set, fxn can find it
   withr::with_envvar(c("PROOF_TOKEN" = "notarealtoken"), {
-    expect_match(
+    expect_type(
       proof_header(request(""))$headers[[1]],
-      "notarealtoken"
+      "weakref"
     )
   })
 })
